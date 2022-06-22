@@ -1,0 +1,1700 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@font-face {
+  font-family: 'GmarketSansLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline-style: none;
+}
+
+
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+img {
+  vertical-align: middle;
+  border: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  background-color: #f7f7f7;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+  line-height: 1.6;
+  font-family: 'Open Sans', GmarketSansMedium, GmarketSansLight, GmarketSansBold, '맑은 고딕', '돋움', Dotum, '굴림', Gulim, Sans-serif;
+}
+
+
+/* left,top 등등을 붙일때는 relative말고 그냥 absolute를써라. relative를써서 제대로출력될수도 있으나, 나중에 문제를 일으킬소지가 존재하기때문이다. */
+
+/* Common */
+
+.clearfix::after {
+  content: '';
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+.inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  /* 그냥 1400px을 주어도 가능하긴하지만 max-width 로 지정해줌으로써 반응형이 대한 대응이 가능해진다. */
+  margin: 0 auto;
+  /* 0은 위아래를 의미 auto는 좌우를 의미, 레이아웃(내용을 담고 있는 레이아웃)을 중앙에 배치하란뜻을 의미한다. */
+}
+
+
+
+/* container 또는 contents 라고 하는사람도 많음 */
+
+
+
+/* after의 의미는 <선택자>~~~~요기!!!</선택자>, 즉 선택자가 닫히기 바로전단계까지를 말한다.*/
+
+
+
+
+
+/* 더보기메뉴 */
+.more-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.more-menutap {
+  position: relative;
+  display: block;
+  width: 90%;
+
+  margin: 0 auto;
+  margin-top: 180px;
+  /* transform: translateX(-50%);
+  transform: translateY(-50%);
+  이렇게 쓰면안됨, 뒤에껄 무시해버린다. */
+  background-color: #fff;
+  padding: 80px 85px;
+}
+
+.mm-close {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  display: block;
+  width: 70px;
+  height: 70px;
+  border: 0;
+  background-color: #2578de;
+  cursor: pointer;
+}
+
+.icon-x {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: transform 0.5s;
+}
+
+.mm-close:hover .icon-x {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.icon-x::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 9px;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.icon-x::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+}
+
+
+.more-menutap>h2 {
+  position: relative;
+  display: block;
+  font-size: 32px;
+  color: #222;
+  font-weight: 300;
+  margin-bottom: 50px;
+  white-space: nowrap;
+}
+
+.more-menutap>h2 b {
+  color: #2578de;
+  font-weight: 700;
+}
+
+.more-menu {
+  position: relative;
+  display: block;
+  font-size: 0;
+}
+
+.more-menu>li {
+  position: relative;
+  display: inline-block;
+  width: calc(100% / 6);
+  vertical-align: top;
+  padding: 25px 15px;
+}
+
+
+
+
+.more-mainmenu {
+  position: relative;
+  display: block;
+  padding-bottom: 50px;
+}
+
+.more-submenu {
+  position: relative;
+  display: block;
+  padding-top: 35px;
+  font-size: 14px;
+  border-top: 2px solid rgb(68, 68, 68);
+
+}
+
+
+.more-submenu li {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+
+}
+
+
+
+.more-submenu li a {
+  position: relative;
+  display: block;
+  color: #666666;
+}
+
+.more-submenu li:hover .more-mainmenu {
+  color: #2578de;
+  border-bottom: 2px solid #2578de;
+}
+
+.more-submenu li a:hover {
+  color: #2578de;
+}
+
+/* 이렇게 할거면 height를 주면 쉽게해결이 가능하다. 다만 display table로 해보자  */
+/* table & table layout fixed, table-cell */
+/* .more-menu>li:last-child(6n) {
+  6번째마다 마진없음
+  margin-right: 0;
+} */
+.more-menu>li:first-child {
+  padding-left: 0;
+
+}
+
+.more-menu>li:nth-child(6n) {
+  padding-right: 0;
+
+}
+
+.more-menu>li>a {
+  white-space: nowrap;
+}
+
+.more-menu {
+  position: relative;
+  display: block;
+  font-size: 19px;
+  color: #222;
+  padding-bottom: 50px;
+}
+
+.more-mainmenu {
+  position: relative;
+  display: block;
+}
+
+.more-submenu {
+  position: relative;
+  display: block;
+}
+
+/* 모바일관련 */
+/* 모바일메뉴 */
+.mb-btn {
+  position: fixed;
+  right: 15px;
+  top: 25px;
+  display: none;
+  width: 24px;
+  height: 14px;
+  z-index: 99999;
+  /* header보가 커야함 */
+}
+
+.mb-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+  /* 트랜지션을 여기다가 지정해줘야함 */
+}
+
+.mb-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* 이렇게 before 그리고 중간 , after 이 3개에다가 지정해주고,  모두다 ease를 줌으로써 가속도를 붙인다는의미이다.
+  사실 여기서는 큰의미는 없는게 시간을 0.3s로 지정해놧기에 어차피 스르륵 변화된다.*/
+
+.mb-btn-open::before {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+.mb-btn-open .line {
+  width: 0;
+}
+
+.mb-btn-open::after {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+/* 모바일메뉴내용 */
+.mb-wrap {
+  position: fixed;
+  right: -400px;
+  /* 본인만큼 옆으로 치워져있는다는의미*/
+  top: 0;
+  display: block;
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 99998;
+  transition: all 0.3s;
+
+  padding: 0 20px;
+}
+
+/* mb-btn보다는 아래에나와야하기땜에 99998 */
+/* z인덱스가 높은게 제일 위로온다. */
+/* 모바일메뉴 가림막 */
+
+.mb-wrap-open {
+  right: 0;
+}
+
+.mbw-top {
+  position: relative;
+  display: block;
+  padding-top: 70px;
+  padding-bottom: 15px;
+}
+
+.mbw-top a {
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 13px;
+  color: #999;
+  border: 2px solid #eee;
+  line-height: 36px;
+  margin-right: 8px;
+  padding: 0 20px;
+  border-radius: 18px;
+  background-color: rgba(0, 0, 0, 0.0);
+  transition: background-color 0.5s;
+}
+
+.mbw-top a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mbw-main {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(100% - 124px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.mb-menu {
+  position: relative;
+  display: block;
+}
+
+.mb-menu>li {
+  position: relative;
+  display: block;
+  background-color: #f5f5f5;
+
+  width: 100%;
+
+}
+
+.mb-mainmenu {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  color: #2578de;
+  line-height: 60px;
+  background-color: #fff;
+}
+
+.mb-mainmenu>li {
+  position: relative;
+  display: block;
+}
+
+.mb-submenu {
+  position: relative;
+  display: block;
+  padding: 0 20px;
+}
+
+.mb-submenu li {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid#e9e9e9;
+}
+
+.mb-submenu>li>a {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  color: #666;
+  line-height: 56px;
+}
+
+
+
+
+.mb-dim {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background-color: #000;
+  z-index: 99997;
+}
+
+.mb-dim-open {
+  display: block;
+}
+
+/* 기존거엔 none을하고 -open을 붙이면서 display:block을 하면 나타나게됨 */
+
+
+
+/* Specific */
+/* === 헤더영역 === */
+.header {
+  position: relative;
+  display: block;
+  z-index: 9999;
+}
+
+.header .inner {
+  height: 98px;
+}
+
+/* .header > .inner 라고도 표현할수있는데 되도록이면 >없이하라. 다만 >를 표현할때는!! */
+/* div~~   innner~~~안에 또  innner 등등 같은class로 겹칠경우에는 사용해서 혼란이 없도록 하자. */
+
+/* .header .inner .ball {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  border-radius: 50%;
+}
+이렇게 지정하면 글자크기만큼까지만 검은원이 만들어져버린다. 왜냐하면 inline요소이기때문이다. 
+그렇기때문에 block을 설정해줘야한다.
+그냥 센션에다가 무조건 display:block을 줘라
+
+.header .inner .ball {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+  border-radius: 50%;
+} */
+
+/* 이렇게 할때 relative와 block을 먼저 아래 3개 logo gnb member에다가 다 부여한다. 그리고 넘어가라 */
+.logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 12%;
+  height: 54px;
+  background: url('../images/img_logo.png') no-repeat center;
+  background-size: contain;
+  /* 이런식으로 퍼센트로 잡아주면 기존높이가 바뀌더라도 원하는 자리에 위치하게된다. */
+}
+
+
+
+.gnb {
+  position: relative;
+  display: block;
+}
+
+.menu {
+  position: absolute;
+  /* relative에서 수정한거임*/
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  display: block;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+/* 너비를 알면 margin : 0 auto; 해주면 중앙으로간다. 가운데로 보내주는 의미임 */
+/* 너비를 알수 없으면 absolute잡아주고 움직이기!! */
+/* center라는 것도 이용이 가능한데, 이건 inline-block이라는 조건이 잇어야함!! */
+
+.menu>li {
+  position: relative;
+  display: inline-block;
+  /* 여기서 인라인블록을 설정할때 굉장히 복합한 설명이 부연된다. */
+  /* 일단 float:left를 잡아서 빈틈없이 매겨놨더니, 줄넘김이 발생하는경우가 생긴다. */
+  /* 그럼 이경우에는 결국에 너비를 잡아줘야하나? 하는 고민이 생기지만 메뉴갯수가 바뀔수도잇고,
+반응형에 대응하려면 너비를 잡아주는게 적절치못하다는 결론이 나온다.*/
+  /* 어떻게 해결을 할것이냐! 결국 'menu'를 만들때에는 인라인 블럭을 이용해라!!!  */
+  /* 1. inline-block을 지정해줘라. 
+    2. 줄넘김을 막기위해서는 이제 인라인요소가 되었기때문에 white-space:nowrap을 적용해준다. 
+    3. 이렇게까지해주면 되지만 우리가 최대한 float left로 한이유가 바로 틈이없는거기때문잇고, 
+    인라인블럭을쓰면 띄어쓰기같은 틈이발생한다. 이는 코딩시 이용하는 enter로 인한것이고 이를
+    없애주고자 font-size 제로 까지 적용해준다. 그러고나면 enter에 대한 공백은 사라지나, text로
+    쓰여진부분까지 안보이게되기땜에, 그건 따로 내려가서 하나하나 적용해줘야한다.*/
+}
+
+.mainmenu {
+  position: relative;
+  display: block;
+  height: 98px;
+  line-height: 98px;
+  text-align: center;
+  padding: 0 18px;
+  font-size: 19px;
+  color: #333;
+  border: 0;
+}
+
+.submenu {
+  position: absolute;
+  /* relative에서 수정한거*/
+  /* 여기서 absoulte가 되면서 부모에는 영향을 주지않게된다.  */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  top: 70px;
+  min-width: 180px;
+  visibility: hidden;
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  opacity: 0;
+  transition: all 0.3s;
+
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 8%);
+}
+
+.menu>li>a:hover {
+  color: #2578de
+}
+
+.menu>li:hover .submenu {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+.submenu li {
+  position: relative;
+  display: block;
+}
+
+.submenu li a {
+  position: relative;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+  font-weight: 400;
+  line-height: 46px;
+  border-bottom: 1px solid #eaeaea;
+  /* 줄내림을 하지마란 명령어 (너비를 지정해서 해결할수도 있고 이렇게도가능) */
+}
+
+.submenu li:last-child a {
+  border: none;
+}
+
+.menu>li:hover .mainmenu {
+  color: #2578de;
+}
+
+.menu a:hover {
+  color: #2578de;
+}
+
+/* gnb는 되도록이면 제일 마지막에 작업하라. 이게 가장 복합한경우가 대부분이기떄문에*/
+
+.member {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+}
+
+.member-list {
+  position: relative;
+  display: block;
+  float: left;
+
+}
+
+.member-list li {
+  position: relative;
+  display: block;
+  float: left;
+  margin-top: 12px;
+  margin-right: 15px;
+}
+
+.member-list li a {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  color: #666;
+
+}
+
+.member-more {
+  position: relative;
+  display: block;
+  width: 45px;
+  height: 45px;
+
+  float: left;
+  font-size: 0;
+  background: url('../images/img_allmenu.png') no-repeat center;
+  background-size: cover;
+  border: 0;
+  cursor: pointer;
+}
+
+/* 왜 여기에 member를 앞에 달아주면 적용이안돼??? */
+
+.colorful1 {
+  color: #ff8000;
+}
+
+.colorful2 {
+  color: #0365ad;
+}
+
+.colorful3 {
+  color: #93be49;
+}
+
+.colorful4 {
+  color: #f35c8a;
+}
+
+/* 상단PC버젼 */
+/* 1400보다 작은 경우 반응형 */
+/* 비율 = 원하는값.기준값 (vw : viewport width) */
+
+@media all and (max-width:1400px) {
+  .header .inner {
+    height: 90px;
+  }
+
+  .logo {
+    width: 123px;
+    height: 40px;
+  }
+
+  .menu {
+    left: 60%;
+    top: 28px;
+  }
+
+  .mainmenu {
+    font-size: 17px;
+    line-height: 65px;
+    height: 65px;
+  }
+
+  .submenu {
+    top: 60px;
+  }
+
+  .member {
+    top: 20%;
+  }
+
+  .member-more {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin-top: 5px;
+  }
+}
+
+@media all and (max-width:1000px) {
+  .mb-btn {
+    display: block;
+  }
+
+  .header .inner {
+    height: 70px;
+  }
+
+  .gnb {
+    display: none;
+  }
+
+  .member {
+    display: none;
+  }
+}
+
+/* ===visual=== */
+.visual {
+  position: relative;
+  display: block;
+  height: 477px;
+}
+
+
+.sw-visual {
+  width: 100%;
+  height: 100%;
+}
+
+.sw-visual a {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.vs-1 {
+  background: url('../images/banner_1_20200915_0.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.vs-2 {
+  background: url('../images/banner_2_20200915_0.jpg') no-repeat center;
+  background-size: cover;
+}
+
+
+.vs-3 {
+  background: url('../images/banner_4_20200915_0.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.sw-visual-control {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+
+  display: block;
+  z-index: 9;
+}
+
+
+.sw-visual-pgnt {
+  float: left;
+}
+
+.sw-visual-pgnt .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  top: 10px;
+  background-color: #fff;
+  opacity: 0.5;
+  margin-right: 10px;
+}
+
+.sw-visual-pgnt .swiper-pagination-bullet-active {
+  opacity: 1;
+  /* 이건 액티브됏을때 진하게보이겟다! */
+}
+
+
+
+.sw-visual-bt {
+  position: relative;
+  display: block;
+  width: 23px;
+  height: 22px;
+  background: transparent;
+  /* background: url('../images/img_banner_stop.png') no-repeat center; */
+  cursor: pointer;
+  border: 0;
+  float: left;
+  color: #fff;
+  font-family: 'Material Icons';
+  font-size: 10px;
+  top: -2px;
+}
+
+.sw-visual-bt-play {
+  background: url('../images/play.png') no-repeat center;
+  /* background: url('../images/img_banner_play.png') no-repeat center; */
+  /* 클릭을하면 플레이로 바뀌게!! */
+}
+
+/* 보통 html페이지를 만들때 섹션내에서 내용을 자리잡게하기때문에, 각 영역이 기준대비 움직이는게 많다.
+그렇기에 position:relative를 각 영역이 내용물의 기준점이 된다.*/
+
+/* visual PC 버젼 */
+/* visual 반응형 버젼 */
+/* 비율 = 원하는값.기준값 (vw : viewport width) */
+
+@media all and (max-width: 1400px) {
+
+  /* and 앞뒤로띄어쓰기 무조건해줘야함 */
+  .visual {
+    height: 50vw;
+  }
+}
+
+/* meta=viewport 설정이 필요해 */
+
+.quick-menu {
+  position: relative;
+  display: block;
+  background-color: #f2f4f7;
+  padding: 15px 0;
+}
+
+.quick-menu .inner {
+  position: relative;
+  display: block;
+}
+
+.qm-list {
+  position: relative;
+  display: block;
+}
+
+.qm-list li {
+  position: relative;
+  display: block;
+  width: 20%;
+  float: left;
+  border-right: 1px solid #d9dbde;
+}
+
+.qm-list li:last-child {
+  border-right: 0px;
+}
+
+.qm-list li a {
+  position: relative;
+  display: block;
+  line-height: 85px;
+  text-align: center;
+  font-size: 17px;
+  color: #333;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.qm-list li a>img {
+  width: auto;
+  height: 58px;
+  /* mix-blend-mode: multiply; 배경을 없애주는 css기능 */
+  margin-right: 20px;
+}
+
+.qm-list li a:hover {
+  transform: translateX(-5%);
+}
+
+
+/* quick menu pc */
+/* 퀵메뉴 반응형 */
+@media all and (max-width:990px) {
+  .quick-menu {
+    padding: 0;
+  }
+
+
+  .qm-list li:nth-child(1),
+  .qm-list li:nth-child(2),
+  .qm-list li:nth-child(3) {
+    width: calc(100% / 3);
+    border-bottom: 1px solid #d9dbde;
+  }
+
+  .qm-list li:nth-child(4),
+  .qm-list li:nth-child(5) {
+    width: 50%;
+  }
+}
+
+@media all and (max-width:760px) {
+  .qm-list li a {
+    line-height: 60px;
+    font-size: 16px;
+  }
+
+  .qm-list li a img {
+    height: 35px;
+  }
+}
+
+@media all and (max-width:640px) {
+  .qm-list li {
+    width: 50% !important;
+    border-bottom: 1px solid #d9dbde;
+  }
+
+  .qm-list li:last-child {
+    border-bottom: none;
+  }
+}
+
+.community {
+  position: relative;
+  display: block;
+  padding: 70px 0;
+}
+
+.community .inner {
+  position: relative;
+  display: block;
+}
+
+.community-box {
+  position: relative;
+  display: block;
+  float: left;
+  width: 32.5%;
+  height: 372px;
+  margin-right: 1.5%;
+  overflow: hidden;
+  padding: 30px;
+  /**/
+  border: 1px solid #e6e8eb;
+  /* 여기서 일단 높이를 잡는이유 : 높이를 주지않으면 게시판에 내용이 하나도 없을경우, 텅비게되면서 높이줄게 없어져서 모양이 잡히지않게된다. 그래서 높이를 여기서는 구체적으로 줄필요가 반드시있다. */
+  /* 이에 더해서 반대로 overflow hidden을 줌으로써 게시판에 보여질 내용이 너무많을경우는 안보이게도 만들어줘야한다. */
+}
+
+.calender {
+  width: 32%;
+  margin-right: 0;
+}
+
+.comu-top {
+  position: relative;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.bg-line {
+  background: url('../images/img_bg_line.png') repeat-x;
+  background-position: 0 100%;
+}
+
+.comu-top h3 {
+  position: relative;
+  display: block;
+  font-size: 22px;
+  color: #0e62b2;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+.comu-more {
+  position: absolute;
+  right: 0px;
+  top: 6px;
+  display: block;
+  padding-left: 18px;
+  /* 이것도 설명이 필요하다. */
+  white-space: nowrap;
+  font-size: 18px;
+  color: #333;
+}
+
+.comu-more::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 14px;
+  display: block;
+  width: 8px;
+  height: 2px;
+  background-color: #131313;
+}
+
+.comu-more::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 11px;
+  display: block;
+  width: 2px;
+  height: 8px;
+  background-color: #131313;
+}
+
+/* 여기보면 before,after를 보면 absolute이고 그 윗태그인 comu-more도 absolute이다. */
+/* 그럼 이상황에서 b,a는 어디를 기준으로 가느냐?? 그냥 바로 윗부모 태그를 기준이 되어버린다. */
+/* 조금 다르게 설명하자면, absolute는 기준값이 되는 relative를 찾는데에는 결국 기준좌표값을 찾는다라고 표현할수도 있는데... 그렇다면 윗부모의 absolute는 그 윗태그에대해서 포지션을 지정해주었고
+그렇기에 윗부모absolute는 포지션 정해지게 된셈이다. 그렇기에 내가지정한 b,a의 absolute는 그 윗태그 absolute를 기준으로하게된다는 말이된다. */
+
+
+
+
+
+.comu-main {
+  position: relative;
+  display: block;
+  padding-top: 25px;
+}
+
+.comu-list {
+  position: relative;
+  display: block;
+}
+
+.comu-list li {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-bottom: 1px solid #e6e6e6;
+  line-height: 53px;
+}
+
+.comu-list li:last-child {
+  border-bottom: none;
+}
+
+.comu-list li a {
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 16px;
+  color: #444;
+  font-weight: 300;
+
+  /* 말줄임표 ... 코드 */
+  width: 75%;
+  /* 너비존재해야함*/
+  overflow: hidden;
+  /*넘어가면안보이게*/
+  text-overflow: ellipsis;
+  /*생략*/
+  white-space: nowrap;
+  /*줄내림없기*/
+}
+
+
+
+.comu-list li span {
+  position: relative;
+  display: block;
+  float: right;
+  font-size: 15px;
+  color: #444;
+}
+
+/* 커뮤니티 pc버젼 */
+/* 커뮤니티 반응형 */
+
+@media all and (max-width:1000px) {
+
+  .community {
+    padding: 5vw 0;
+  }
+
+  .community-box:nth-child(1) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .community-box:nth-child(2) {
+    width: 49%;
+    margin-right: 2%;
+  }
+
+  .community-box:nth-child(3) {
+    width: 49%;
+    margin-right: 0;
+  }
+}
+
+@media all and (max-width:640px) {
+  .community-box:nth-child(2) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .community-box:nth-child(3) {
+    width: 100%;
+  }
+}
+
+
+
+/* 
+.calender h3 {
+  position: relative;
+  display: block;
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #0e62b2;
+  font-weight: 300;
+} */
+
+/* 갤러리영역 */
+.gallery {
+  position: relative;
+  display: block;
+  background: url('../images/img_bottombg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 90px 0;
+}
+
+.gallery h3 {
+  position: relative;
+  display: block;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.gallery-more {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  padding-left: 18px;
+}
+
+.gallery-more::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 12px;
+  display: block;
+  width: 11px;
+  height: 2px;
+  background-color: azure;
+}
+
+.gallery-more::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  display: block;
+  width: 3px;
+  height: 10px;
+  background-color: azure;
+}
+
+.gallery-activity {
+  display: block;
+  position: relative;
+  width: 67%;
+  /* height: 415px; */
+  float: left;
+}
+
+.gallery-list {
+  position: relative;
+  display: block;
+}
+
+.gallery-list li {
+  position: relative;
+  display: block;
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+}
+
+.gallery-list li:last-child {
+  margin-right: 0;
+}
+
+.gallery-list li a {
+  position: relative;
+  display: block;
+  background-color: #000;
+  transition: all 0.5s;
+}
+
+.gallery-list li a:hover {
+  box-shadow: 15px 15px 34px rgba(0, 0, 0, 0.28);
+}
+
+.gallery-list li a:hover .gl-img {
+  opacity: 0.75;
+}
+
+/* 관리자가 새로운 게시물을 업로드할때,
+이미지
+타이틀
+날짜 */
+.gl-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 195px;
+  transition: all 0.5s;
+}
+
+
+.gl-img1 {
+  background: url('../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg') no-repeat center;
+  background-size: cover;
+}
+
+.gl-img2 {
+  background: url('../images/tmb_data_file_52_20211214112755_0.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.gl-img3 {
+  background: url('../images/tmb_data_file_53_20211214112958_0.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.gl-content {
+  position: relative;
+  display: block;
+  background-color: #fff;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.glc-title {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  color: #444;
+  font-weight: 400;
+}
+
+.glc-date {
+  position: relative;
+  display: block;
+  font-size: 15px;
+  color: #5f5f15;
+  margin-top: 20px;
+}
+
+.gallery-video {
+  display: block;
+  position: relative;
+  width: 29%;
+  /* height: 415px; */
+  float: right;
+}
+
+.gallery-vid {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 327px;
+  background-color: #282828;
+}
+
+/* 갤러리 pc 레이아웃 */
+/* 갤러리 반응형 레이아웃 */
+@media all and (max-width:1400px) {
+  .gallery {
+    padding: 6.42vw 0;
+  }
+
+  .gallery .inner {
+    width: 96%;
+  }
+
+  .gl-content {
+    position: relative;
+    display: block;
+    background-color: #fff;
+    padding: 30px 2.85vw;
+    text-align: center;
+  }
+}
+
+@media all and (max-width:1100px) {
+  .glc-title {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width:1080px) {
+  .gallery-activity {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .gallery-video {
+    width: 100%;
+  }
+
+  .gallery-vid {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+  }
+}
+
+@media all and (max-width:660px) {
+  .gallry-list li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+/* 배너 */
+.banners {
+  position: relative;
+  display: block;
+  padding: 25px 0;
+}
+
+.banner .inner {
+  position: relative;
+  display: block;
+}
+
+.banners-left {
+  position: relative;
+  display: block;
+  float: left;
+  width: 170px;
+  margin-top: 13px;
+}
+
+.banners-left h2 {
+  position: relative;
+  display: block;
+  font-size: 20px;
+  columns: #3d3d3d;
+  font-weight: 600;
+}
+
+.banner-control {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  display: block;
+  width: 73px;
+  height: 25px;
+  border: 1px solid #ececec;
+}
+
+
+
+
+.sw-banner-prev {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 23px;
+  background-color: #fff;
+  border: 0;
+  border-right: 1px solid #ececec;
+  text-align: center;
+  color: #979797;
+  line-height: 23px;
+  float: left;
+  cursor: pointer;
+}
+
+
+.sw-banner-pause {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 23px;
+  background-color: #fff;
+  border: 0;
+  text-align: center;
+  line-height: 23px;
+  float: left;
+  cursor: pointer;
+}
+
+.sw-banner-pause span {
+  display: block;
+  color: #979797;
+  font-size: 16px;
+}
+
+.sw-banner-next {
+  position: relative;
+  display: block;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  background-color: #fff;
+  border: 0;
+  border-left: 1px solid #ececec;
+  color: #979797;
+  line-height: 23px;
+  float: left;
+  cursor: pointer;
+}
+
+.banners-right {
+  position: relative;
+  display: block;
+  float: right;
+  width: 83.6%;
+}
+
+.sw-banner a {
+  position: relative;
+  display: block;
+  height: 57px;
+  border: 1px solid #e9e9e9;
+}
+
+.banner-01 {
+  background: url('../images/img_banner01.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-02 {
+  background: url('../images/img_banner02.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-03 {
+  background: url('../images/img_banner03.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-04 {
+  background: url('../images/img_banner04.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-05 {
+  background: url('../images/img_banner05.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-06 {
+  background: url('../images/img_banner06.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-07 {
+  background: url('../images/img_banner07.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-08 {
+  background: url('../images/img_banner08.gif') no-repeat center;
+  background-size: cover;
+}
+
+.banner-09 {
+  background: url('../images/img_banner09.gif') no-repeat center;
+  background-size: cover;
+}
+
+/* 배너 pc 영역 */
+/* 배너 반응형 */
+@media all and (max-width:1400px) {
+  .banner .inner {
+    width: 97%;
+  }
+}
+
+@media all and (max-width:1100px) {
+  .banners-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+
+/* 푸터 */
+.footer {
+  position: relative;
+  display: block;
+  background-color: #323232;
+  padding: 30px 0px;
+}
+
+.f-hr {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: #3c3c3c;
+  margin: 30px 0;
+}
+
+.footer-menu {
+  position: relative;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.footer-menu li {
+  position: relative;
+  display: block;
+  float: left;
+  margin-right: 15px;
+}
+
+.footer-menu li a {
+  position: relative;
+  display: block;
+  color: #888;
+  font-size: 13px;
+  line-height: 28px;
+
+  border: 1px solid #595959;
+  border-radius: 3px;
+  padding: 0 12px;
+
+  background-color: rgba(255, 255, 255, 0.0);
+  transition: all 0.5s;
+}
+
+.footer-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.gotop {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  background: #f74141 url('../images/img_arrow04.svg') no-repeat center;
+  background-size: 10%;
+  transform: rotate(90deg);
+}
+
+
+
+.footer-address {
+  position: relative;
+  display: block;
+}
+
+.footer-address li {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-address li strong {
+  display: inline-block;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 15px;
+}
+
+.footer-address li span {
+  display: inline-block;
+  font-size: 14px;
+  color: #555;
+  padding-right: 10px;
+}
+
+.footer-address li em,
+.footer-address li address {
+  display: inline-block;
+  font-size: 14px;
+  color: #888;
+  font-style: normal;
+}
+
+.copy {
+  color: #888;
+  position: relative;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+}
+
+
+.copy strong {
+  display: inline-block;
+}
+
+@media all and (max-width:1400px) {
+  .footer .inner {
+    width: 97%;
+  }
+}
+
+
+@media all and (max-width:650px) {
+  .footer .inner {
+    width: 97%;
+  }
+
+  .footer-addr li strong {
+    font-size: 13px;
+  }
+
+  .footer-addr li span {
+    font-size: 13px;
+  }
+
+  .footer-addr li em,
+  .footer-addr li address {
+    font-size: 13px;
+  }
+}
