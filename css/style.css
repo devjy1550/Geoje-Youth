@@ -1,30 +1,31 @@
 @charset 'utf-8';
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @font-face {
-  font-family: 'GmarketSansLight';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GmarketSansBold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
-
 
 * {
   margin: 0;
@@ -32,8 +33,6 @@
   box-sizing: border-box;
   outline-style: none;
 }
-
-
 
 ul,
 li {
@@ -67,8 +66,6 @@ img {
   border-radius: 2px;
 }
 
-
-
 html {
   font-size: 16px;
 }
@@ -78,16 +75,16 @@ body {
   font-weight: 400;
   letter-spacing: -0.6px;
   line-height: 1.6;
-  font-family: 'Open Sans', GmarketSansMedium, GmarketSansLight, GmarketSansBold, '맑은 고딕', '돋움', Dotum, '굴림', Gulim, Sans-serif;
+  font-family: "Open Sans", GmarketSansMedium, GmarketSansLight, GmarketSansBold,
+    "맑은 고딕", "돋움", Dotum, "굴림", Gulim, Sans-serif;
 }
-
 
 /* left,top 등등을 붙일때는 relative말고 그냥 absolute를써라. relative를써서 제대로출력될수도 있으나, 나중에 문제를 일으킬소지가 존재하기때문이다. */
 
 /* Common */
 
 .clearfix::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   clear: both;
@@ -103,17 +100,9 @@ body {
   /* 0은 위아래를 의미 auto는 좌우를 의미, 레이아웃(내용을 담고 있는 레이아웃)을 중앙에 배치하란뜻을 의미한다. */
 }
 
-
-
 /* container 또는 contents 라고 하는사람도 많음 */
 
-
-
 /* after의 의미는 <선택자>~~~~요기!!!</선택자>, 즉 선택자가 닫히기 바로전단계까지를 말한다.*/
-
-
-
-
 
 /* 더보기메뉴 */
 .more-wrap {
@@ -171,7 +160,7 @@ body {
 }
 
 .icon-x::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 1px;
   top: 9px;
@@ -182,7 +171,7 @@ body {
 }
 
 .icon-x::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 10px;
   top: 0px;
@@ -192,8 +181,7 @@ body {
   background-color: #fff;
 }
 
-
-.more-menutap>h2 {
+.more-menutap > h2 {
   position: relative;
   display: block;
   font-size: 32px;
@@ -203,7 +191,7 @@ body {
   white-space: nowrap;
 }
 
-.more-menutap>h2 b {
+.more-menutap > h2 b {
   color: #2578de;
   font-weight: 700;
 }
@@ -214,16 +202,13 @@ body {
   font-size: 0;
 }
 
-.more-menu>li {
+.more-menu > li {
   position: relative;
   display: inline-block;
   width: calc(100% / 6);
   vertical-align: top;
   padding: 25px 15px;
 }
-
-
-
 
 .more-mainmenu {
   position: relative;
@@ -237,18 +222,13 @@ body {
   padding-top: 35px;
   font-size: 14px;
   border-top: 2px solid rgb(68, 68, 68);
-
 }
-
 
 .more-submenu li {
   position: relative;
   display: block;
   margin-bottom: 20px;
-
 }
-
-
 
 .more-submenu li a {
   position: relative;
@@ -271,17 +251,15 @@ body {
   6번째마다 마진없음
   margin-right: 0;
 } */
-.more-menu>li:first-child {
+.more-menu > li:first-child {
   padding-left: 0;
-
 }
 
-.more-menu>li:nth-child(6n) {
+.more-menu > li:nth-child(6n) {
   padding-right: 0;
-
 }
 
-.more-menu>li>a {
+.more-menu > li > a {
   white-space: nowrap;
 }
 
@@ -317,7 +295,7 @@ body {
 }
 
 .mb-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -341,7 +319,7 @@ body {
 }
 
 .mb-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 100%;
@@ -411,7 +389,7 @@ body {
   margin-right: 8px;
   padding: 0 20px;
   border-radius: 18px;
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.5s;
 }
 
@@ -433,13 +411,12 @@ body {
   display: block;
 }
 
-.mb-menu>li {
+.mb-menu > li {
   position: relative;
   display: block;
   background-color: #f5f5f5;
 
   width: 100%;
-
 }
 
 .mb-mainmenu {
@@ -451,7 +428,7 @@ body {
   background-color: #fff;
 }
 
-.mb-mainmenu>li {
+.mb-mainmenu > li {
   position: relative;
   display: block;
 }
@@ -468,16 +445,13 @@ body {
   border-bottom: 1px solid#e9e9e9;
 }
 
-.mb-submenu>li>a {
+.mb-submenu > li > a {
   position: relative;
   display: block;
   font-size: 14px;
   color: #666;
   line-height: 56px;
 }
-
-
-
 
 .mb-dim {
   position: fixed;
@@ -496,8 +470,6 @@ body {
 }
 
 /* 기존거엔 none을하고 -open을 붙이면서 display:block을 하면 나타나게됨 */
-
-
 
 /* Specific */
 /* === 헤더영역 === */
@@ -544,12 +516,10 @@ body {
   display: block;
   width: 12%;
   height: 54px;
-  background: url('../images/img_logo.png') no-repeat center;
+  background: url("../images/img_logo.png") no-repeat center;
   background-size: contain;
   /* 이런식으로 퍼센트로 잡아주면 기존높이가 바뀌더라도 원하는 자리에 위치하게된다. */
 }
-
-
 
 .gnb {
   position: relative;
@@ -571,7 +541,7 @@ body {
 /* 너비를 알수 없으면 absolute잡아주고 움직이기!! */
 /* center라는 것도 이용이 가능한데, 이건 inline-block이라는 조건이 잇어야함!! */
 
-.menu>li {
+.menu > li {
   position: relative;
   display: inline-block;
   /* 여기서 인라인블록을 설정할때 굉장히 복합한 설명이 부연된다. */
@@ -615,22 +585,21 @@ body {
   transition: all 0.3s;
 
   background: #fff;
-  border: 1px solid rgba(255, 255, 255, .3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 3px;
   box-shadow: 0px 0px 10px rgb(0 0 0 / 8%);
 }
 
-.menu>li>a:hover {
-  color: #2578de
+.menu > li > a:hover {
+  color: #2578de;
 }
 
-.menu>li:hover .submenu {
+.menu > li:hover .submenu {
   z-index: 999;
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
-
 
 .submenu li {
   position: relative;
@@ -654,7 +623,7 @@ body {
   border: none;
 }
 
-.menu>li:hover .mainmenu {
+.menu > li:hover .mainmenu {
   color: #2578de;
 }
 
@@ -676,7 +645,6 @@ body {
   position: relative;
   display: block;
   float: left;
-
 }
 
 .member-list li {
@@ -692,7 +660,6 @@ body {
   display: block;
   font-size: 14px;
   color: #666;
-
 }
 
 .member-more {
@@ -703,7 +670,7 @@ body {
 
   float: left;
   font-size: 0;
-  background: url('../images/img_allmenu.png') no-repeat center;
+  background: url("../images/img_allmenu.png") no-repeat center;
   background-size: cover;
   border: 0;
   cursor: pointer;
@@ -731,7 +698,7 @@ body {
 /* 1400보다 작은 경우 반응형 */
 /* 비율 = 원하는값.기준값 (vw : viewport width) */
 
-@media all and (max-width:1400px) {
+@media all and (max-width: 1400px) {
   .header .inner {
     height: 90px;
   }
@@ -768,7 +735,7 @@ body {
   }
 }
 
-@media all and (max-width:1000px) {
+@media all and (max-width: 1000px) {
   .mb-btn {
     display: block;
   }
@@ -793,7 +760,6 @@ body {
   height: 477px;
 }
 
-
 .sw-visual {
   width: 100%;
   height: 100%;
@@ -807,18 +773,17 @@ body {
 }
 
 .vs-1 {
-  background: url('../images/banner_1_20200915_0.jpg') no-repeat center;
+  background: url("../images/banner_1_20200915_0.jpg") no-repeat center;
   background-size: cover;
 }
 
 .vs-2 {
-  background: url('../images/banner_2_20200915_0.jpg') no-repeat center;
+  background: url("../images/banner_2_20200915_0.jpg") no-repeat center;
   background-size: cover;
 }
 
-
 .vs-3 {
-  background: url('../images/banner_4_20200915_0.jpg') no-repeat center;
+  background: url("../images/banner_4_20200915_0.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -831,7 +796,6 @@ body {
   display: block;
   z-index: 9;
 }
-
 
 .sw-visual-pgnt {
   float: left;
@@ -851,8 +815,6 @@ body {
   /* 이건 액티브됏을때 진하게보이겟다! */
 }
 
-
-
 .sw-visual-bt {
   position: relative;
   display: block;
@@ -864,13 +826,13 @@ body {
   border: 0;
   float: left;
   color: #fff;
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-size: 10px;
   top: -2px;
 }
 
 .sw-visual-bt-play {
-  background: url('../images/play.png') no-repeat center;
+  background: url("../images/play.png") no-repeat center;
   /* background: url('../images/img_banner_play.png') no-repeat center; */
   /* 클릭을하면 플레이로 바뀌게!! */
 }
@@ -883,7 +845,6 @@ body {
 /* 비율 = 원하는값.기준값 (vw : viewport width) */
 
 @media all and (max-width: 1400px) {
-
   /* and 앞뒤로띄어쓰기 무조건해줘야함 */
   .visual {
     height: 50vw;
@@ -933,7 +894,7 @@ body {
   white-space: nowrap;
 }
 
-.qm-list li a>img {
+.qm-list li a > img {
   width: auto;
   height: 58px;
   /* mix-blend-mode: multiply; 배경을 없애주는 css기능 */
@@ -944,14 +905,12 @@ body {
   transform: translateX(-5%);
 }
 
-
 /* quick menu pc */
 /* 퀵메뉴 반응형 */
-@media all and (max-width:990px) {
+@media all and (max-width: 990px) {
   .quick-menu {
     padding: 0;
   }
-
 
   .qm-list li:nth-child(1),
   .qm-list li:nth-child(2),
@@ -966,7 +925,7 @@ body {
   }
 }
 
-@media all and (max-width:760px) {
+@media all and (max-width: 760px) {
   .qm-list li a {
     line-height: 60px;
     font-size: 16px;
@@ -977,7 +936,7 @@ body {
   }
 }
 
-@media all and (max-width:640px) {
+@media all and (max-width: 640px) {
   .qm-list li {
     width: 50% !important;
     border-bottom: 1px solid #d9dbde;
@@ -1007,7 +966,7 @@ body {
   height: 372px;
   margin-right: 1.5%;
   overflow: hidden;
-  padding: 30px;
+  padding: 20px 30px;
   /**/
   border: 1px solid #e6e8eb;
   /* 여기서 일단 높이를 잡는이유 : 높이를 주지않으면 게시판에 내용이 하나도 없을경우, 텅비게되면서 높이줄게 없어져서 모양이 잡히지않게된다. 그래서 높이를 여기서는 구체적으로 줄필요가 반드시있다. */
@@ -1016,17 +975,18 @@ body {
 
 .calender {
   width: 32%;
+  display: inline-block;
   margin-right: 0;
 }
 
 .comu-top {
   position: relative;
   display: block;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .bg-line {
-  background: url('../images/img_bg_line.png') repeat-x;
+  background: url("../images/img_bg_line.png") repeat-x;
   background-position: 0 100%;
 }
 
@@ -1034,6 +994,7 @@ body {
   position: relative;
   display: block;
   font-size: 22px;
+  line-height: 48px;
   color: #0e62b2;
   font-weight: 300;
   white-space: nowrap;
@@ -1052,7 +1013,7 @@ body {
 }
 
 .comu-more::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 6px;
   top: 14px;
@@ -1063,7 +1024,7 @@ body {
 }
 
 .comu-more::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 9px;
   top: 11px;
@@ -1078,14 +1039,15 @@ body {
 /* 조금 다르게 설명하자면, absolute는 기준값이 되는 relative를 찾는데에는 결국 기준좌표값을 찾는다라고 표현할수도 있는데... 그렇다면 윗부모의 absolute는 그 윗태그에대해서 포지션을 지정해주었고
 그렇기에 윗부모absolute는 포지션 정해지게 된셈이다. 그렇기에 내가지정한 b,a의 absolute는 그 윗태그 absolute를 기준으로하게된다는 말이된다. */
 
-
-
-
-
 .comu-main {
   position: relative;
-  display: block;
-  padding-top: 25px;
+  display: inline-block;
+  width: 100%;
+}
+
+.data-news,
+.data-info {
+  margin-top: 10px;
 }
 
 .comu-list {
@@ -1098,7 +1060,7 @@ body {
   display: block;
   overflow: hidden;
   border-bottom: 1px solid #e6e6e6;
-  line-height: 53px;
+  line-height: 64px;
 }
 
 .comu-list li:last-child {
@@ -1124,8 +1086,6 @@ body {
   /*줄내림없기*/
 }
 
-
-
 .comu-list li span {
   position: relative;
   display: block;
@@ -1134,11 +1094,174 @@ body {
   color: #444;
 }
 
+.community-box.calender .comu-top {
+  padding-bottom: 0;
+}
+
+.comu-main #datepicker {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#datepicker .ui-widget {
+  width: 100%;
+  border: 0;
+}
+
+#datepicker .ui-widget-content .ui-state-default {
+  border: 0;
+  text-align: center;
+}
+
+#datepicker .ui-widget .ui-state-hover {
+  background: none;
+  border: 0;
+}
+
+#datepicker .ui-state-highlight,
+#datepicker .ui-widget-content .ui-state-highlight {
+  z-index: 2;
+  color: #fff;
+  background-color: #2c3035;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
+}
+
+#datepicker .ui-datepicker-header {
+  border: 0;
+  background-color: #fff;
+}
+
+#datepicker .ui-datepicker-title {
+  font-size: 22px;
+  color: #333;
+}
+
+#datepicker .ui-datepicker-prev,
+#datepicker .ui-datepicker-next {
+  position: absolute;
+  display: block;
+
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e1e1e1;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+#datepicker .ui-datepicker-prev span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  background: url("../images/img_arrow01.svg") no-repeat center;
+  background-size: 6px 10px;
+  margin: 0;
+}
+
+#datepicker .ui-datepicker-next span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  display: block;
+  background: url("../images/img_arrow01.svg") no-repeat center;
+  background-size: 6px 10px;
+  margin: 0;
+}
+
+#datepicker .ui-datepicker-prev {
+  left: 0;
+  top: 0;
+}
+
+#datepicker .ui-datepicker-next {
+  right: 0;
+  top: 0;
+}
+.ui-datepicker-calendar {
+  border: 0;
+}
+
+.ui-datepicker-calendar thead tr th {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  font-size: 15px;
+  line-height: 32px;
+  color: #2a2a2a;
+  padding: 0;
+}
+
+.ui-datepicker-calendar thead tr th:first-child {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  font-size: 15px;
+  line-height: 32px;
+  color: #ff3333;
+}
+
+.ui-datepicker-calendar thead tr th:last-child {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  font-size: 15px;
+  line-height: 32px;
+  color: #0066ff;
+}
+
+.ui-datepicker-calendar tbody::before {
+  content: "@";
+  display: block;
+  line-height: 5px;
+  top: 0;
+  text-indent: -999999999999999999px;
+}
+
+.ui-datepicker-calendar tbody tr td {
+  position: relative;
+}
+
+.ui-datepicker-calendar tbody tr td a {
+  margin: auto;
+  display: block;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-weight: 600;
+  background-color: #fff;
+}
+
+.ui-datepicker-calendar tbody tr td:last-child a {
+  background-image: none;
+  color: #0062b1;
+  position: relative;
+}
+
+/* 오늘날짜 CSS */
+#datepicker .ui-state-highlight,
+#datepicker .ui-state-active {
+  background: #2c3035 !important;
+  color: #fff;
+}
+
+.ui-datepicker-calendar tbody tr td:first-child a {
+  background-image: none;
+  color: #ff3333;
+  position: relative;
+}
+
 /* 커뮤니티 pc버젼 */
 /* 커뮤니티 반응형 */
 
-@media all and (max-width:1000px) {
+@media all and (max-width: 1140px) {
+  .comu-list li a {
+    width: 70%;
+  }
+}
 
+@media all and (max-width: 1000px) {
   .community {
     padding: 5vw 0;
   }
@@ -1160,7 +1283,7 @@ body {
   }
 }
 
-@media all and (max-width:640px) {
+@media all and (max-width: 640px) {
   .community-box:nth-child(2) {
     width: 100%;
     margin-right: 0;
@@ -1171,8 +1294,6 @@ body {
     width: 100%;
   }
 }
-
-
 
 /* 
 .calender h3 {
@@ -1188,7 +1309,7 @@ body {
 .gallery {
   position: relative;
   display: block;
-  background: url('../images/img_bottombg.jpg') no-repeat center center;
+  background: url("../images/img_bottombg.jpg") no-repeat center center;
   background-size: cover;
   padding: 90px 0;
 }
@@ -1213,7 +1334,7 @@ body {
 }
 
 .gallery-more::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 2px;
   top: 12px;
@@ -1224,7 +1345,7 @@ body {
 }
 
 .gallery-more::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 6px;
   top: 8px;
@@ -1245,12 +1366,14 @@ body {
 .gallery-list {
   position: relative;
   display: block;
+  height: 100%;
 }
 
 .gallery-list li {
   position: relative;
   display: block;
   float: left;
+  height: 100%;
   width: 32%;
   margin-right: 2%;
 }
@@ -1286,19 +1409,21 @@ body {
   transition: all 0.5s;
 }
 
-
 .gl-img1 {
-  background: url('../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg') no-repeat center;
+  background: url("../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg")
+    no-repeat center;
   background-size: cover;
 }
 
 .gl-img2 {
-  background: url('../images/tmb_data_file_52_20211214112755_0.jpg') no-repeat center;
+  background: url("../images/tmb_data_file_52_20211214112755_0.jpg") no-repeat
+    center;
   background-size: cover;
 }
 
 .gl-img3 {
-  background: url('../images/tmb_data_file_53_20211214112958_0.jpg') no-repeat center;
+  background: url("../images/tmb_data_file_53_20211214112958_0.jpg") no-repeat
+    center;
   background-size: cover;
 }
 
@@ -1344,7 +1469,7 @@ body {
 
 /* 갤러리 pc 레이아웃 */
 /* 갤러리 반응형 레이아웃 */
-@media all and (max-width:1400px) {
+@media all and (max-width: 1400px) {
   .gallery {
     padding: 6.42vw 0;
   }
@@ -1362,13 +1487,18 @@ body {
   }
 }
 
-@media all and (max-width:1100px) {
+@media all and (max-width: 1200px) {
   .glc-title {
     font-size: 15px;
   }
+
+  .glc-date {
+    font-size: 14px;
+    margin-top: 15px;
+  }
 }
 
-@media all and (max-width:1080px) {
+@media all and (max-width: 1080px) {
   .gallery-activity {
     width: 100%;
     margin-bottom: 20px;
@@ -1384,7 +1514,7 @@ body {
   }
 }
 
-@media all and (max-width:660px) {
+@media all and (max-width: 660px) {
   .gallry-list li {
     width: 100%;
     margin-right: 0;
@@ -1430,9 +1560,6 @@ body {
   border: 1px solid #ececec;
 }
 
-
-
-
 .sw-banner-prev {
   position: relative;
   display: block;
@@ -1447,7 +1574,6 @@ body {
   float: left;
   cursor: pointer;
 }
-
 
 .sw-banner-pause {
   position: relative;
@@ -1498,65 +1624,64 @@ body {
 }
 
 .banner-01 {
-  background: url('../images/img_banner01.gif') no-repeat center;
+  background: url("../images/img_banner01.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-02 {
-  background: url('../images/img_banner02.gif') no-repeat center;
+  background: url("../images/img_banner02.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-03 {
-  background: url('../images/img_banner03.gif') no-repeat center;
+  background: url("../images/img_banner03.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-04 {
-  background: url('../images/img_banner04.gif') no-repeat center;
+  background: url("../images/img_banner04.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-05 {
-  background: url('../images/img_banner05.gif') no-repeat center;
+  background: url("../images/img_banner05.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-06 {
-  background: url('../images/img_banner06.gif') no-repeat center;
+  background: url("../images/img_banner06.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-07 {
-  background: url('../images/img_banner07.gif') no-repeat center;
+  background: url("../images/img_banner07.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-08 {
-  background: url('../images/img_banner08.gif') no-repeat center;
+  background: url("../images/img_banner08.gif") no-repeat center;
   background-size: cover;
 }
 
 .banner-09 {
-  background: url('../images/img_banner09.gif') no-repeat center;
+  background: url("../images/img_banner09.gif") no-repeat center;
   background-size: cover;
 }
 
 /* 배너 pc 영역 */
 /* 배너 반응형 */
-@media all and (max-width:1400px) {
+@media all and (max-width: 1400px) {
   .banner .inner {
     width: 97%;
   }
 }
 
-@media all and (max-width:1100px) {
+@media all and (max-width: 1100px) {
   .banners-right {
     width: 100%;
     margin-top: 20px;
   }
 }
-
 
 /* 푸터 */
 .footer {
@@ -1600,7 +1725,7 @@ body {
   border-radius: 3px;
   padding: 0 12px;
 
-  background-color: rgba(255, 255, 255, 0.0);
+  background-color: rgba(255, 255, 255, 0);
   transition: all 0.5s;
 }
 
@@ -1618,12 +1743,10 @@ body {
   border: 0;
   cursor: pointer;
   border-radius: 3px;
-  background: #f74141 url('../images/img_arrow04.svg') no-repeat center;
+  background: #f74141 url("../images/img_arrow04.svg") no-repeat center;
   background-size: 10%;
   transform: rotate(90deg);
 }
-
-
 
 .footer-address {
   position: relative;
@@ -1668,19 +1791,17 @@ body {
   font-weight: 400;
 }
 
-
 .copy strong {
   display: inline-block;
 }
 
-@media all and (max-width:1400px) {
+@media all and (max-width: 1400px) {
   .footer .inner {
     width: 97%;
   }
 }
 
-
-@media all and (max-width:650px) {
+@media all and (max-width: 650px) {
   .footer .inner {
     width: 97%;
   }

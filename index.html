@@ -24,6 +24,13 @@
     integrity="sha512-gMjQeDaELJ0ryCI+FtItusU9MkAifCZcGq789FrzkiM49D8lbDhoaUaIX4ASU187wofMNlgBJ4ckbrXM9sE6Pg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js"></script>
   <!-- script.js가 가장마지막에 오도록해라. -->
@@ -340,12 +347,15 @@
           </div>
         </div>
 
-        <div class="community-box calender bg-line">
+        <div class="community-box calender">
           <div class="comu-top">
             <h3>센터일정</h3>
             <a href="" class="comu-more">전체보기</a>
-            <div class="comu-main"></div>
           </div>
+          <div class="comu-main">
+            <div id="datepicker"></div>
+          </div>
+
         </div>
       </div>
     </section>
