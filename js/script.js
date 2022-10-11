@@ -4,6 +4,32 @@
 // $('.sw-swiper' a)
 
 $(document).ready(function () {
+  // 전체메뉴 보기 기능
+  // .more-wrap 저장해서 활용하자.
+  let more_wrap = $(".more-wrap");
+
+  // .member-more 저장해서 활용하자.
+  let member_more = $(".member-more");
+  member_more.click(function () {
+    more_wrap.fadeIn(300);
+  });
+  // .mm-close 를 활용하자.
+  let mm_close = $(".mm-close");
+  mm_close.click(function () {
+    more_wrap.fadeOut(300);
+  });
+
+  // 더보기 메뉴 배경을 클릭하면 사라지기
+  more_wrap.click(function () {
+    more_wrap.fadeOut(300);
+  });
+
+  $(".more-menutap").click(function (event) {
+    // 클릭 신호(이벤트) 전달 방지
+    event.stopPropagation();
+  });
+
+
   // 모바일메뉴기능
   // .mb-bt를 저장해서 활용하자.
   $(".mb-btn").click(function (e) {
@@ -13,6 +39,7 @@ $(document).ready(function () {
     $(".mb-wrap").toggleClass("mb-wrap-open");
     //
   });
+
   // 화면사이즈 체크
   $(window).resize(function () {
     // 화면너비를 계산한다.
@@ -23,6 +50,8 @@ $(document).ready(function () {
       $(".mb-btn").removeClass("mb-btn-open");
       $(".mb-dim").removeClass("mb-dim-open");
       $(".mb-wrap").removeClass("mb-wrap-open");
+      $(".mb-menu>li").height(60);
+      $(".mb-mainmenu").removeClass("mb-mainmenu-open");
     }
   }); // 모바일메뉴 펼치기기능
   // 1.모바일메뉴저장
@@ -47,11 +76,32 @@ $(document).ready(function () {
     $(this).click(function (e) {
       // 웹브라우저 갱신막기
       e.preventDefault();
-      let temp = mb_submenu_high[index];
-      mb_li.eq(index).height(temp + 60);
+
+      // mb-mainmenu-open 를 toggleClass 한다.
+      $(this).toggleClass("mb-mainmenu-open");
+      // 만약에 mb-mainmenu-open 이 있으면 펼치고
+      // 없으면 닫고
+      let active = $(this).hasClass("mb-mainmenu-open");
+      if (active) {
+        let temp = mb_submenu_high[index];
+        mb_li.eq(index).height(temp + 60);
+      } else {
+        mb_li.eq(index).height(60);
+      }
     });
   });
+  // 모바일 메뉴 배경 클릭시 사라짐.
+  let mb_dim = $(".mb-dim");
+  mb_dim.click(function () {
+    // 모바일 버튼 기능 초기화
+    $(".mb-btn").removeClass("mb-btn-open");
+    $(".mb-dim").removeClass("mb-dim-open");
+    $(".mb-wrap").removeClass("mb-wrap-open");
+    $(".mb-menu>li").height(60);
+    $(".mb-mainmenu").removeClass("mb-mainmenu-open");
+  });
 
+  $(".mb-btn").removeClass("mb-btn-open");
   //커뮤니티 영역 데이터 연동
   // 이룸소식         :     Array [] 구현
   let infoLinkArr = ["#1", "#2", "#3", "#4"];
@@ -237,7 +287,7 @@ window.onload = function () {
   function showGalleryInfo(_tag, _data) {
     //대상을 찾아라
     let who = $(_tag);
-    console.log(who);
+    // console.log(who);
 
     who.attr("href", _data.link); //attribute
 

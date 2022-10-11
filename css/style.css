@@ -5,24 +5,21 @@
 
 @font-face {
   font-family: "GmarketSansLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansBold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -95,21 +92,125 @@ body {
   display: block;
   width: 100%;
   max-width: 1400px;
-  /* 그냥 1400px을 주어도 가능하긴하지만 max-width 로 지정해줌으로써 반응형이 대한 대응이 가능해진다. */
   margin: 0 auto;
-  /* 0은 위아래를 의미 auto는 좌우를 의미, 레이아웃(내용을 담고 있는 레이아웃)을 중앙에 배치하란뜻을 의미한다. */
 }
 
-/* container 또는 contents 라고 하는사람도 많음 */
 
-/* after의 의미는 <선택자>~~~~요기!!!</선택자>, 즉 선택자가 닫히기 바로전단계까지를 말한다.*/
+/* modal */
+.modal-wrap {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
 
-/* 더보기메뉴 */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 560px;
+  height: 400px;
+  background-color: white;
+  border-radius: 20px;
+  border: 4px solid #0c4da2;
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: -62px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  background: url("../images/MYLG.png") no-repeat center;
+  background-size: contain;
+}
+
+.modal-notice {
+  position: relative;
+  display: block;
+  padding-top: 45px;
+  padding-bottom: 20px;
+}
+
+.modal-notice p {
+  position: relative;
+  display: block;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal-notice span {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: rgb(137, 137, 137);
+  text-align: center;
+}
+
+.modal-desc {
+  position: relative;
+  display: block;
+  width: calc(100% - 40px);
+  height: calc(100% - 240px);
+  background-color: #d0dfef;
+  border-radius: 16px;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-desc span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  font-size: 20px;
+  line-height: 32px;
+  width: 100%;
+  color: #d0dfef;
+  text-align: center;
+  background-color: #0c4da2;
+}
+
+.modal-close {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: calc(60% - 40px);
+  height: 50px;
+  border-radius: 20px;
+  font-size: 22px;
+  line-height: 50px;
+  background-color: #444;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+/* more-menu */
 .more-wrap {
   position: fixed;
   left: 0;
   top: 0;
-  display: block;
+  display: none;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -181,7 +282,7 @@ body {
   background-color: #fff;
 }
 
-.more-menutap > h2 {
+.more-menutap>h2 {
   position: relative;
   display: block;
   font-size: 32px;
@@ -191,7 +292,7 @@ body {
   white-space: nowrap;
 }
 
-.more-menutap > h2 b {
+.more-menutap>h2 b {
   color: #2578de;
   font-weight: 700;
 }
@@ -202,12 +303,13 @@ body {
   font-size: 0;
 }
 
-.more-menu > li {
+.more-menu>li {
   position: relative;
   display: inline-block;
-  width: calc(100% / 6);
+  width: calc((100% -180px)/ 6);
   vertical-align: top;
-  padding: 25px 15px;
+  padding-right: 30px;
+  margin-bottom: 85px;
 }
 
 .more-mainmenu {
@@ -233,6 +335,7 @@ body {
 .more-submenu li a {
   position: relative;
   display: block;
+  font-size: 15px;
   color: #666666;
 }
 
@@ -251,34 +354,46 @@ body {
   6번째마다 마진없음
   margin-right: 0;
 } */
-.more-menu > li:first-child {
+.more-menu>li:first-child {
   padding-left: 0;
 }
 
-.more-menu > li:nth-child(6n) {
+.more-menu>li:nth-child(6n) {
   padding-right: 0;
 }
 
-.more-menu > li > a {
+.more-menu>li>a {
+  font-size: 19px;
   white-space: nowrap;
 }
 
 .more-menu {
   position: relative;
   display: block;
-  font-size: 19px;
+  font-size: 0;
   color: #222;
-  padding-bottom: 50px;
+  border-bottom: 2px solid rgb(225, 225, 225);
 }
 
-.more-mainmenu {
-  position: relative;
-  display: block;
+/* 전체메뉴보기 pc 레이아웃 */
+/* 전체메뉴 보기 반응형 */
+@media all and (max-width: 1200px) {
+  .more-submenu li a {
+    font-size: 14px;
+  }
 }
 
-.more-submenu {
-  position: relative;
-  display: block;
+@media all and (max-width: 1140px) {
+  .more-submenu li a {
+    font-size: 12px;
+  }
+}
+
+
+@media all and (max-width: 1000px) {
+  .more-wrap {
+    display: none !important;
+  }
 }
 
 /* 모바일관련 */
@@ -315,7 +430,6 @@ body {
   height: 2px;
   background-color: #333;
   transition: all 0.3s ease;
-  /* 트랜지션을 여기다가 지정해줘야함 */
 }
 
 .mb-btn::after {
@@ -329,9 +443,6 @@ body {
   background-color: #333;
   transition: all 0.3s ease;
 }
-
-/* 이렇게 before 그리고 중간 , after 이 3개에다가 지정해주고,  모두다 ease를 줌으로써 가속도를 붙인다는의미이다.
-  사실 여기서는 큰의미는 없는게 시간을 0.3s로 지정해놧기에 어차피 스르륵 변화된다.*/
 
 .mb-btn-open::before {
   top: 50%;
@@ -351,7 +462,6 @@ body {
 .mb-wrap {
   position: fixed;
   right: -400px;
-  /* 본인만큼 옆으로 치워져있는다는의미*/
   top: 0;
   display: block;
   width: 400px;
@@ -363,9 +473,6 @@ body {
   padding: 0 20px;
 }
 
-/* mb-btn보다는 아래에나와야하기땜에 99998 */
-/* z인덱스가 높은게 제일 위로온다. */
-/* 모바일메뉴 가림막 */
 
 .mb-wrap-open {
   right: 0;
@@ -411,24 +518,31 @@ body {
   display: block;
 }
 
-.mb-menu > li {
+.mb-menu>li {
   position: relative;
   display: block;
   background-color: #f5f5f5;
 
   width: 100%;
+  height: 60px;
+  overflow: hidden;
+  transition: all 0.5s;
 }
 
 .mb-mainmenu {
   position: relative;
   display: block;
   font-size: 18px;
-  color: #2578de;
+  /* color: #2578de; */
   line-height: 60px;
   background-color: #fff;
 }
 
-.mb-mainmenu > li {
+.mb-mainmenu-open {
+  color: #2578de;
+}
+
+.mb-mainmenu>li {
   position: relative;
   display: block;
 }
@@ -445,7 +559,12 @@ body {
   border-bottom: 1px solid#e9e9e9;
 }
 
-.mb-submenu > li > a {
+
+.mb-submenu li:last-child {
+  border-bottom: 0;
+}
+
+.mb-submenu>li>a {
   position: relative;
   display: block;
   font-size: 14px;
@@ -453,6 +572,8 @@ body {
   line-height: 56px;
 }
 
+
+/* 가림막 */
 .mb-dim {
   position: fixed;
   left: 0;
@@ -469,9 +590,6 @@ body {
   display: block;
 }
 
-/* 기존거엔 none을하고 -open을 붙이면서 display:block을 하면 나타나게됨 */
-
-/* Specific */
 /* === 헤더영역 === */
 .header {
   position: relative;
@@ -483,31 +601,7 @@ body {
   height: 98px;
 }
 
-/* .header > .inner 라고도 표현할수있는데 되도록이면 >없이하라. 다만 >를 표현할때는!! */
-/* div~~   innner~~~안에 또  innner 등등 같은class로 겹칠경우에는 사용해서 혼란이 없도록 하자. */
 
-/* .header .inner .ball {
-  width: 50px;
-  height: 50px;
-  background-color: #000;
-  border-radius: 50%;
-}
-이렇게 지정하면 글자크기만큼까지만 검은원이 만들어져버린다. 왜냐하면 inline요소이기때문이다. 
-그렇기때문에 block을 설정해줘야한다.
-그냥 센션에다가 무조건 display:block을 줘라
-
-.header .inner .ball {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  width: 100px;
-  height: 100px;
-  background-color: #000;
-  border-radius: 50%;
-} */
-
-/* 이렇게 할때 relative와 block을 먼저 아래 3개 logo gnb member에다가 다 부여한다. 그리고 넘어가라 */
 .logo {
   position: absolute;
   left: 0;
@@ -518,7 +612,6 @@ body {
   height: 54px;
   background: url("../images/img_logo.png") no-repeat center;
   background-size: contain;
-  /* 이런식으로 퍼센트로 잡아주면 기존높이가 바뀌더라도 원하는 자리에 위치하게된다. */
 }
 
 .gnb {
@@ -537,24 +630,9 @@ body {
   font-size: 0;
 }
 
-/* 너비를 알면 margin : 0 auto; 해주면 중앙으로간다. 가운데로 보내주는 의미임 */
-/* 너비를 알수 없으면 absolute잡아주고 움직이기!! */
-/* center라는 것도 이용이 가능한데, 이건 inline-block이라는 조건이 잇어야함!! */
-
-.menu > li {
+.menu>li {
   position: relative;
   display: inline-block;
-  /* 여기서 인라인블록을 설정할때 굉장히 복합한 설명이 부연된다. */
-  /* 일단 float:left를 잡아서 빈틈없이 매겨놨더니, 줄넘김이 발생하는경우가 생긴다. */
-  /* 그럼 이경우에는 결국에 너비를 잡아줘야하나? 하는 고민이 생기지만 메뉴갯수가 바뀔수도잇고,
-반응형에 대응하려면 너비를 잡아주는게 적절치못하다는 결론이 나온다.*/
-  /* 어떻게 해결을 할것이냐! 결국 'menu'를 만들때에는 인라인 블럭을 이용해라!!!  */
-  /* 1. inline-block을 지정해줘라. 
-    2. 줄넘김을 막기위해서는 이제 인라인요소가 되었기때문에 white-space:nowrap을 적용해준다. 
-    3. 이렇게까지해주면 되지만 우리가 최대한 float left로 한이유가 바로 틈이없는거기때문잇고, 
-    인라인블럭을쓰면 띄어쓰기같은 틈이발생한다. 이는 코딩시 이용하는 enter로 인한것이고 이를
-    없애주고자 font-size 제로 까지 적용해준다. 그러고나면 enter에 대한 공백은 사라지나, text로
-    쓰여진부분까지 안보이게되기땜에, 그건 따로 내려가서 하나하나 적용해줘야한다.*/
 }
 
 .mainmenu {
@@ -571,8 +649,6 @@ body {
 
 .submenu {
   position: absolute;
-  /* relative에서 수정한거*/
-  /* 여기서 absoulte가 되면서 부모에는 영향을 주지않게된다.  */
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   top: 70px;
@@ -590,11 +666,11 @@ body {
   box-shadow: 0px 0px 10px rgb(0 0 0 / 8%);
 }
 
-.menu > li > a:hover {
+.menu>li>a:hover {
   color: #2578de;
 }
 
-.menu > li:hover .submenu {
+.menu>li:hover .submenu {
   z-index: 999;
   opacity: 1;
   visibility: visible;
@@ -623,7 +699,7 @@ body {
   border: none;
 }
 
-.menu > li:hover .mainmenu {
+.menu>li:hover .mainmenu {
   color: #2578de;
 }
 
@@ -740,6 +816,15 @@ body {
     display: block;
   }
 
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+  }
+
   .header .inner {
     height: 70px;
   }
@@ -812,7 +897,6 @@ body {
 
 .sw-visual-pgnt .swiper-pagination-bullet-active {
   opacity: 1;
-  /* 이건 액티브됏을때 진하게보이겟다! */
 }
 
 .sw-visual-bt {
@@ -821,7 +905,6 @@ body {
   width: 23px;
   height: 22px;
   background: transparent;
-  /* background: url('../images/img_banner_stop.png') no-repeat center; */
   cursor: pointer;
   border: 0;
   float: left;
@@ -833,26 +916,50 @@ body {
 
 .sw-visual-bt-play {
   background: url("../images/play.png") no-repeat center;
-  /* background: url('../images/img_banner_play.png') no-repeat center; */
-  /* 클릭을하면 플레이로 바뀌게!! */
+
 }
 
-/* 보통 html페이지를 만들때 섹션내에서 내용을 자리잡게하기때문에, 각 영역이 기준대비 움직이는게 많다.
-그렇기에 position:relative를 각 영역이 내용물의 기준점이 된다.*/
-
-/* visual PC 버젼 */
-/* visual 반응형 버젼 */
-/* 비율 = 원하는값.기준값 (vw : viewport width) */
 
 @media all and (max-width: 1400px) {
-  /* and 앞뒤로띄어쓰기 무조건해줘야함 */
   .visual {
     height: 50vw;
   }
+
+
+  .vs-1 {
+    background: url("../images/bannerm_1_20200915_0.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  .vs-2 {
+    background: url("../images/bannerm_2_20200915_0.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  .vs-3 {
+    background: url("../images/bannerm_4_20200915_0.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  .sw-visual-control {
+    bottom: 30px;
+  }
 }
 
-/* meta=viewport 설정이 필요해 */
 
+@media all and (max-width: 1000px) {
+  .visual {
+    padding-top: 70px;
+    height: 70vw;
+  }
+
+  .sw-visual-control {
+    bottom: 25px;
+  }
+}
+
+
+/* 퀵메뉴 */
 .quick-menu {
   position: relative;
   display: block;
@@ -894,7 +1001,7 @@ body {
   white-space: nowrap;
 }
 
-.qm-list li a > img {
+.qm-list li a>img {
   width: auto;
   height: 58px;
   /* mix-blend-mode: multiply; 배경을 없애주는 css기능 */
@@ -1180,6 +1287,7 @@ body {
   right: 0;
   top: 0;
 }
+
 .ui-datepicker-calendar {
   border: 0;
 }
@@ -1410,20 +1518,17 @@ body {
 }
 
 .gl-img1 {
-  background: url("../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg")
-    no-repeat center;
+  background: url("../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg") no-repeat center;
   background-size: cover;
 }
 
 .gl-img2 {
-  background: url("../images/tmb_data_file_52_20211214112755_0.jpg") no-repeat
-    center;
+  background: url("../images/tmb_data_file_52_20211214112755_0.jpg") no-repeat center;
   background-size: cover;
 }
 
 .gl-img3 {
-  background: url("../images/tmb_data_file_53_20211214112958_0.jpg") no-repeat
-    center;
+  background: url("../images/tmb_data_file_53_20211214112958_0.jpg") no-repeat center;
   background-size: cover;
 }
 
