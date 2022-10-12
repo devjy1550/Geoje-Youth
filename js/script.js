@@ -4,6 +4,17 @@
 // $('.sw-swiper' a)
 
 $(document).ready(function () {
+  let modalWrap = $(".modal-wrap");
+  let modalClose = $(".modal-close");
+
+  modalClose.click(function () {
+    $(".modal-wrap").hide();
+  });
+
+  modalWrap.click(function () {
+    $(".modal-wrap").hide();
+  });
+
   // 전체메뉴 보기 기능
   // .more-wrap 저장해서 활용하자.
   let more_wrap = $(".more-wrap");
@@ -28,7 +39,6 @@ $(document).ready(function () {
     // 클릭 신호(이벤트) 전달 방지
     event.stopPropagation();
   });
-
 
   // 모바일메뉴기능
   // .mb-bt를 저장해서 활용하자.

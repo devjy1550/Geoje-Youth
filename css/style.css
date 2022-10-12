@@ -5,21 +5,24 @@
 
 @font-face {
   font-family: "GmarketSansLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansMedium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GmarketSansBold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -50,7 +53,7 @@ img {
 ::-webkit-scrollbar {
   width: 8px;
   height: 5px;
-  background-color: #f7f7f7;
+  background-color: #d0dfef;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -95,7 +98,6 @@ body {
   margin: 0 auto;
 }
 
-
 /* modal */
 .modal-wrap {
   display: block;
@@ -105,7 +107,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 999;
+  z-index: 999999999999999;
 }
 
 .modal-content {
@@ -169,8 +171,6 @@ body {
   background-color: #d0dfef;
   border-radius: 16px;
   margin: 0 auto;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .modal-desc span {
@@ -181,10 +181,30 @@ body {
   display: block;
   font-size: 20px;
   line-height: 32px;
+  border-radius: 20px 20px 0 0;
   width: 100%;
   color: #d0dfef;
   text-align: center;
   background-color: #0c4da2;
+}
+
+.modal-desc .modal-comments {
+  position: absolute;
+  height: 100px;
+  display: block;
+  margin-top: 39px;
+  margin-left: 9px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  line-height: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-desc .modal-comments li {
+  list-style: square;
 }
 
 .modal-close {
@@ -201,9 +221,8 @@ body {
   background-color: #444;
   text-align: center;
   color: #fff;
+  cursor: pointer;
 }
-
-
 
 /* more-menu */
 .more-wrap {
@@ -282,7 +301,7 @@ body {
   background-color: #fff;
 }
 
-.more-menutap>h2 {
+.more-menutap > h2 {
   position: relative;
   display: block;
   font-size: 32px;
@@ -292,7 +311,7 @@ body {
   white-space: nowrap;
 }
 
-.more-menutap>h2 b {
+.more-menutap > h2 b {
   color: #2578de;
   font-weight: 700;
 }
@@ -303,10 +322,10 @@ body {
   font-size: 0;
 }
 
-.more-menu>li {
+.more-menu > li {
   position: relative;
   display: inline-block;
-  width: calc((100% -180px)/ 6);
+  width: calc((100% -180px) / 6);
   vertical-align: top;
   padding-right: 30px;
   margin-bottom: 85px;
@@ -354,15 +373,15 @@ body {
   6번째마다 마진없음
   margin-right: 0;
 } */
-.more-menu>li:first-child {
+.more-menu > li:first-child {
   padding-left: 0;
 }
 
-.more-menu>li:nth-child(6n) {
+.more-menu > li:nth-child(6n) {
   padding-right: 0;
 }
 
-.more-menu>li>a {
+.more-menu > li > a {
   font-size: 19px;
   white-space: nowrap;
 }
@@ -388,7 +407,6 @@ body {
     font-size: 12px;
   }
 }
-
 
 @media all and (max-width: 1000px) {
   .more-wrap {
@@ -467,12 +485,11 @@ body {
   width: 400px;
   height: 100%;
   background-color: #fff;
-  z-index: 99998;
+  z-index: 999999;
   transition: all 0.3s;
 
   padding: 0 20px;
 }
-
 
 .mb-wrap-open {
   right: 0;
@@ -518,7 +535,7 @@ body {
   display: block;
 }
 
-.mb-menu>li {
+.mb-menu > li {
   position: relative;
   display: block;
   background-color: #f5f5f5;
@@ -542,7 +559,7 @@ body {
   color: #2578de;
 }
 
-.mb-mainmenu>li {
+.mb-mainmenu > li {
   position: relative;
   display: block;
 }
@@ -559,19 +576,17 @@ body {
   border-bottom: 1px solid#e9e9e9;
 }
 
-
 .mb-submenu li:last-child {
   border-bottom: 0;
 }
 
-.mb-submenu>li>a {
+.mb-submenu > li > a {
   position: relative;
   display: block;
   font-size: 14px;
   color: #666;
   line-height: 56px;
 }
-
 
 /* 가림막 */
 .mb-dim {
@@ -583,7 +598,7 @@ body {
   height: 100%;
   opacity: 0.7;
   background-color: #000;
-  z-index: 99997;
+  z-index: 999998;
 }
 
 .mb-dim-open {
@@ -600,7 +615,6 @@ body {
 .header .inner {
   height: 98px;
 }
-
 
 .logo {
   position: absolute;
@@ -630,7 +644,7 @@ body {
   font-size: 0;
 }
 
-.menu>li {
+.menu > li {
   position: relative;
   display: inline-block;
 }
@@ -666,11 +680,11 @@ body {
   box-shadow: 0px 0px 10px rgb(0 0 0 / 8%);
 }
 
-.menu>li>a:hover {
+.menu > li > a:hover {
   color: #2578de;
 }
 
-.menu>li:hover .submenu {
+.menu > li:hover .submenu {
   z-index: 999;
   opacity: 1;
   visibility: visible;
@@ -699,7 +713,7 @@ body {
   border: none;
 }
 
-.menu>li:hover .mainmenu {
+.menu > li:hover .mainmenu {
   color: #2578de;
 }
 
@@ -916,15 +930,12 @@ body {
 
 .sw-visual-bt-play {
   background: url("../images/play.png") no-repeat center;
-
 }
-
 
 @media all and (max-width: 1400px) {
   .visual {
     height: 50vw;
   }
-
 
   .vs-1 {
     background: url("../images/bannerm_1_20200915_0.jpg") no-repeat center;
@@ -946,7 +957,6 @@ body {
   }
 }
 
-
 @media all and (max-width: 1000px) {
   .visual {
     padding-top: 70px;
@@ -957,7 +967,6 @@ body {
     bottom: 25px;
   }
 }
-
 
 /* 퀵메뉴 */
 .quick-menu {
@@ -1001,7 +1010,7 @@ body {
   white-space: nowrap;
 }
 
-.qm-list li a>img {
+.qm-list li a > img {
   width: auto;
   height: 58px;
   /* mix-blend-mode: multiply; 배경을 없애주는 css기능 */
@@ -1518,17 +1527,20 @@ body {
 }
 
 .gl-img1 {
-  background: url("../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg") no-repeat center;
+  background: url("../images/3월\ 인문학\ 특강\ [우리\ 삶에\ 철학이\ 필요한\ 이유].jpg")
+    no-repeat center;
   background-size: cover;
 }
 
 .gl-img2 {
-  background: url("../images/tmb_data_file_52_20211214112755_0.jpg") no-repeat center;
+  background: url("../images/tmb_data_file_52_20211214112755_0.jpg") no-repeat
+    center;
   background-size: cover;
 }
 
 .gl-img3 {
-  background: url("../images/tmb_data_file_53_20211214112958_0.jpg") no-repeat center;
+  background: url("../images/tmb_data_file_53_20211214112958_0.jpg") no-repeat
+    center;
   background-size: cover;
 }
 
